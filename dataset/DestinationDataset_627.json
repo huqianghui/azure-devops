@@ -1,0 +1,16 @@
+{
+	"name": "DestinationDataset_627",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "datawareLinkedService",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "CosmosDbSqlApiCollection",
+		"schema": {},
+		"typeProperties": {
+			"collectionName": "OrdersAggInfo"
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

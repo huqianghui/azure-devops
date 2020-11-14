@@ -1,0 +1,13 @@
+{
+	"name": "SourceDataset_627",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "SqlServerLinkService",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "AzureSqlMITable",
+		"schema": []
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

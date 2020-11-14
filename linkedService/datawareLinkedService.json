@@ -1,0 +1,12 @@
+{
+	"name": "datawareLinkedService",
+	"type": "Microsoft.DataFactory/factories/linkedservices",
+	"properties": {
+		"annotations": [],
+		"type": "CosmosDb",
+		"typeProperties": {
+			"connectionString": "AccountEndpoint=https://openhack1cosmos2account.documents.azure.com:443/;Database=movieDW;",
+			"encryptedCredential": "ew0KICAiVmVyc2lvbiI6ICIyMDE3LTExLTMwIiwNCiAgIlByb3RlY3Rpb25Nb2RlIjogIktleSIsDQogICJTZWNyZXRDb250ZW50VHlwZSI6ICJQbGFpbnRleHQiLA0KICAiQ3JlZGVudGlhbElkIjogIk9QRU5IQUNLMURBVEFGQUNUT1JZXzNjMjJjYmY2LTcyNGQtNDIxOS05N2FhLTgyNjg0NTU4NTgxYSINCn0="
+		}
+	}
+}

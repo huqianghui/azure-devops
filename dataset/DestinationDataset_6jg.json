@@ -1,0 +1,24 @@
+{
+	"name": "DestinationDataset_6jg",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "CosmosDbLinkedService",
+			"type": "LinkedServiceReference"
+		},
+		"parameters": {
+			"cw_collectionName": {
+				"type": "String"
+			}
+		},
+		"annotations": [],
+		"type": "CosmosDbSqlApiCollection",
+		"schema": {},
+		"typeProperties": {
+			"collectionName": {
+				"value": "@dataset().cw_collectionName",
+				"type": "Expression"
+			}
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

@@ -1,0 +1,147 @@
+{
+	"name": "copySqlServer2CosmosDB",
+	"properties": {
+		"activities": [
+			{
+				"name": "ForEach_tz6",
+				"type": "ForEach",
+				"dependsOn": [],
+				"userProperties": [],
+				"typeProperties": {
+					"items": {
+						"value": "@pipeline().parameters.cw_items",
+						"type": "Expression"
+					},
+					"activities": [
+						{
+							"name": "Copy_tz6",
+							"type": "Copy",
+							"dependsOn": [],
+							"policy": {
+								"timeout": "7.00:00:00",
+								"retry": 0,
+								"retryIntervalInSeconds": 30,
+								"secureOutput": false,
+								"secureInput": false
+							},
+							"userProperties": [
+								{
+									"name": "Source",
+									"value": "dbo.@{item().source.table}"
+								},
+								{
+									"name": "Destination",
+									"value": "@{item().destination.collectionName}"
+								}
+							],
+							"typeProperties": {
+								"source": {
+									"type": "SqlMISource",
+									"partitionOption": "None"
+								},
+								"sink": {
+									"type": "CosmosDbSqlApiSink",
+									"writeBehavior": "insert"
+								},
+								"enableStaging": false,
+								"validateDataConsistency": false
+							},
+							"inputs": [
+								{
+									"referenceName": "SourceDataset_tz6",
+									"type": "DatasetReference",
+									"parameters": {
+										"cw_table": "@item().source.table"
+									}
+								}
+							],
+							"outputs": [
+								{
+									"referenceName": "DestinationDataset_tz6",
+									"type": "DatasetReference",
+									"parameters": {
+										"cw_collectionName": "@item().destination.collectionName"
+									}
+								}
+							]
+						}
+					]
+				}
+			}
+		],
+		"parameters": {
+			"cw_items": {
+				"type": "Array",
+				"defaultValue": [
+					{
+						"source": {
+							"table": "Cartitem"
+						},
+						"destination": {
+							"collectionName": "CartItem"
+						}
+					},
+					{
+						"source": {
+							"table": "Category"
+						},
+						"destination": {
+							"collectionName": "Category"
+						}
+					},
+					{
+						"source": {
+							"table": "Event"
+						},
+						"destination": {
+							"collectionName": "Event"
+						}
+					},
+					{
+						"source": {
+							"table": "Item"
+						},
+						"destination": {
+							"collectionName": "Item"
+						}
+					},
+					{
+						"source": {
+							"table": "ItemAggregate"
+						},
+						"destination": {
+							"collectionName": "ItemAggregate"
+						}
+					},
+					{
+						"source": {
+							"table": "OrderDetails"
+						},
+						"destination": {
+							"collectionName": "OrderDetails"
+						}
+					},
+					{
+						"source": {
+							"table": "Orders"
+						},
+						"destination": {
+							"collectionName": "Orders"
+						}
+					},
+					{
+						"source": {
+							"table": "User"
+						},
+						"destination": {
+							"collectionName": "User"
+						}
+					}
+				]
+			}
+		},
+		"annotations": [],
+		"lastPublishTime": "2020-11-12T09:19:08Z"
+	},
+	"type": "Microsoft.DataFactory/factories/pipelines"
+}
