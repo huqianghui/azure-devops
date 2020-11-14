@@ -1,0 +1,15 @@
+{
+	"name": "DestinationDataset_kmv",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "datawareLinkedService",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "CosmosDbSqlApiCollection",
+		"schema": {},
+		"typeProperties": {
+			"collectionName": "OrdersAggInfo"
+		}
+	}
+}
