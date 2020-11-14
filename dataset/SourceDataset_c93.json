@@ -1,0 +1,12 @@
+{
+	"name": "SourceDataset_c93",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "SqlServerLinkService",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "AzureSqlMITable",
+		"schema": []
+	}
+}
