@@ -26,6 +26,16 @@
 				"typeProperties": {
 					"source": {
 						"type": "SqlMISource",
+						"additionalColumns": [
+							{
+								"name": "BuyCount",
+								"value": "0"
+							},
+							{
+								"name": "id",
+								"value": "$$COLUMN:ItemId"
+							}
+						],
 						"sqlReaderQuery": "select t2.CategoryName,\n        t1.ItemId,\n        t1.ProductName,\n        t1.Description,\n        t1.UnitPrice,\n        t1.Popularity,\n        t1.OriginalLanguage,\n        t1.ReleaseDate,\n        t1.VoteAverage\nfrom \n    Item t1, \n    Category t2 \nwhere \n    t1.CategoryId = t2.CategoryId",
 						"partitionOption": "None"
 					},
@@ -35,7 +45,17 @@
 						"disableMetricsCollection": false
 					},
 					"enableStaging": false,
-					"validateDataConsistency": false
+					"validateDataConsistency": false,
+					"translator": {
+						"type": "TabularTranslator",
+						"mappings": [
+							{
+								"sink": {
+									"path": "$"
+								}
+							}
+						]
+					}
 				},
 				"inputs": [
 					{
