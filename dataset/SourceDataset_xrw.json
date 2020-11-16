@@ -1,0 +1,16 @@
+{
+	"name": "SourceDataset_xrw",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "SqlServerLinkService",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "AzureSqlMITable",
+		"schema": [],
+		"typeProperties": {
+			"schema": "dbo",
+			"table": "Category"
+		}
+	}
+}
