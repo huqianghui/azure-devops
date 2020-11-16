@@ -1,0 +1,61 @@
+{
+	"name": "CopyPipeline_forCategoryLogicDelete",
+	"properties": {
+		"activities": [
+			{
+				"name": "Copy_xrw",
+				"type": "Copy",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "7.00:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [
+					{
+						"name": "Source",
+						"value": "dbo.Category"
+					},
+					{
+						"name": "Destination",
+						"value": "CategoryWithDelFLag"
+					}
+				],
+				"typeProperties": {
+					"source": {
+						"type": "SqlMISource",
+						"additionalColumns": [
+							{
+								"name": "DeletedFlag",
+								"value": "0"
+							}
+						],
+						"partitionOption": "None"
+					},
+					"sink": {
+						"type": "CosmosDbSqlApiSink",
+						"writeBehavior": "upsert",
+						"disableMetricsCollection": false
+					},
+					"enableStaging": false,
+					"validateDataConsistency": false
+				},
+				"inputs": [
+					{
+						"referenceName": "SourceDataset_xrw",
+						"type": "DatasetReference"
+					}
+				],
+				"outputs": [
+					{
+						"referenceName": "DestinationDataset_xrw",
+						"type": "DatasetReference"
+					}
+				]
+			}
+		],
+		"annotations": []
+	}
+}
